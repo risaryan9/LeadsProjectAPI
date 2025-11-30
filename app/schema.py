@@ -3,7 +3,7 @@ from sqlalchemy.sql.sqltypes import TIMESTAMP
 from sqlalchemy.sql.expression import text
 from .database import Base
 
-
+#Raw leads data from Meta ads ingest API
 class RawLeads(Base):
     __tablename__ = "raw_leads"
 
@@ -20,7 +20,7 @@ class RawLeads(Base):
     created_at = Column(TIMESTAMP(timezone=True),
                         nullable=False, server_default=text('now()'))
     
-
+#Leads data from ML pipeline API, converison score calculated
 class Leads(Base):
     __tablename__ = "leads"
 
@@ -34,7 +34,7 @@ class Leads(Base):
     created_at = Column(TIMESTAMP(timezone=True),
                         nullable=False, server_default=text('now()'))
     
-
+# Sales team data with roles
 class SalesTeam(Base):
     __tablename__ = "sales_team"
     id = Column(Integer,primary_key=True, nullable=False)
@@ -42,3 +42,5 @@ class SalesTeam(Base):
     email = Column(String, nullable=False, unique=True)
     password = Column(String, nullable=False)
     role = Column(String, nullable=False)
+    created_at = Column(TIMESTAMP(timezone=True),
+                        nullable=False, server_default=text('now()'))
