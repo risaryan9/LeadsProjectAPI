@@ -18,6 +18,6 @@ def parse_meta_lead(payload: dict) -> models.RawLead:
         budget=field_map["investment_budget"][0],
         years_exp=field_map["years_of_experience"][0],
         interest=field_map["why_interested"][0],
-        source=entry["platform"],
-        ad_id=entry["ad_id"]
+        source= value["platform"],
+        ad_id=value["ad_id"],
     )

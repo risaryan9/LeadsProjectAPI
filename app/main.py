@@ -1,7 +1,10 @@
 from fastapi import FastAPI, Response, status, HTTPException
-from . import database
-from . import schema
+from app import database
+from app import schema
+from app.routers import metaads
 
 app = FastAPI()
 
 schema.Base.metadata.create_all(bind=database.engine)
+
+app.include_router(metaads.router)

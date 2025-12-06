@@ -17,6 +17,8 @@ class RawLeads(Base):
     budget = Column(Integer, nullable=False)
     years_exp = Column(Integer, nullable=False)
     interest = Column(String, nullable=True)
+    ad_id = Column(String, nullable=True)
+    source = Column(String, nullable=True)
     created_at = Column(TIMESTAMP(timezone=True),
                         nullable=False, server_default=text('now()'))
     
