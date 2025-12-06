@@ -43,6 +43,6 @@ class SalesTeam(Base):
     name = Column(String, nullable=False)
     email = Column(String, nullable=False, unique=True)
     password = Column(String, nullable=False)
-    role = Column(String, nullable=False)
+    role = Column(String, nullable=False, server_default=text("'associate'"))
     created_at = Column(TIMESTAMP(timezone=True),
                         nullable=False, server_default=text('now()'))
